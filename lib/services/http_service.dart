@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart';
+import 'package:task_management/models/person_model.dart';
 
 class Network {
   static String BASE = "ads54.herokuapp.com";
-  static Map<String,String> headers = {'Content-Type':'application/json; charset=UTF-8'};
+  static Map<String,String> headers = {};
 
   /* Http Apis */
 
@@ -51,16 +52,15 @@ class Network {
   /* Http Params */
 
   static Map<String, String> paramsEmpty() {
-    Map<String, String> params = new Map();
+    Map<String, String> params =  {};
     return params;
   }
 
   /* Http Parsing */
 
-  // static List<Post> parsePostList(String response) {
-  //   dynamic json = jsonDecode(response);
-  //   var data = List<Post>.from(json.map((x) => Post.fromJson(x)));
-  //   return data;
-  // }
-
+  static List<Person> parsePostList(String response) {
+    dynamic json = jsonDecode(response);
+    var data = List<Person>.from(json.map((x) => Person.fromJson(x)));
+    return data;
+  }
 }
