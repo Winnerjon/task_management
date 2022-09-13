@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task_management/screens/main_screen.dart';
 import 'package:task_management/view_models/login_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -51,9 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     MaterialButton(
                       onPressed: () {
                         model.checkPassword(controller.text);
-                        // model.isSuccess?Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-                        //   return HomeScreen();
-                        // })):null;
+                        model.isSuccess?Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                          return MainScreen(id: 1);
+                        })):null;
                       },
                       color: Colors.blue,
                       child: const Text("Next"),
