@@ -20,6 +20,8 @@ dependencies:
   # to work with rest api
   http: ^0.13.5
 
+  fluttertoast: ^8.0.9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
