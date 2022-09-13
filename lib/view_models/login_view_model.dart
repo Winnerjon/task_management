@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:task_management/models/person_model.dart';
 import 'package:task_management/screens/login_screen.dart';
 import 'package:task_management/services/http_service.dart';
+import 'package:task_management/utils/utils.dart';
 
 class LoginModel with ChangeNotifier{
   bool isLoading = false;
@@ -26,16 +27,18 @@ class LoginModel with ChangeNotifier{
         passwords.add(element.password);
       }
       notifyListeners();
-
     }
     isLoading = false;
     notifyListeners();
   }
 
-  checkPassword(String password){
+  checkPassword(String password)async{
     if(passwords.contains(password)){
       isSuccess = true;
       notifyListeners();
+      Utils.firetoast("Muaffaqiyatli");
+    }else{
+      Utils.firetoast("Kodni qayta kiriting");
     }
   }
 }
