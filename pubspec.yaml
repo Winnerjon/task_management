@@ -18,7 +18,7 @@ dependencies:
   provider: ^6.0.3
 
   # to work with rest api
-  dio: ^4.0.6
+  http: ^0.13.5
 
   #for responsive
   flutter_screenutil: ^5.5.4
