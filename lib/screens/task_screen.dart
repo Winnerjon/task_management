@@ -40,10 +40,10 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => TaskModel(),
+      create: (context) => taskModel,
       child: Consumer<TaskModel>(
         builder: (ctx, model, child) {
-          return Scaffold(
+          return model.isLoading == false ? Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -56,7 +56,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 )),
               ),
               title: Text(
-                "Salom, Olimjon Xudoynazarov",
+                "Salom, Olim",
                 style: TextStyle(
                     color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
                 overflow: TextOverflow.ellipsis,
@@ -173,7 +173,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 ],
               ),
             ),
-          );
+          ) : Center(child: CircularProgressIndicator(),);
         }
       ),
     );

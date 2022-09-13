@@ -32,7 +32,6 @@ class TaskModel extends ChangeNotifier {
         }
       }
     }
-    print("MyTasks: ${myTasks}");
     isLoading = false;
     notifyListeners();
   }
