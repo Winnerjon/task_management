@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:task_management/screens/task_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  final int id;
-  const MainScreen({Key? key,required this.id}) : super(key: key);
+  final List<int> ids;
+  const MainScreen({Key? key,required this.ids}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -15,8 +15,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         children: [
-          TaskScreen(id: 1,),
+          TaskScreen(ids: widget.ids,),
           Container(
             color: Colors.green,
           ),
